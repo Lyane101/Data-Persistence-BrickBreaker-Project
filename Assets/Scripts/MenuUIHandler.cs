@@ -19,7 +19,16 @@ public class MenuUIHandler : MonoBehaviour
     private void Start()
     {
         MenuManager.Instance.LoadHighScore();
-        BestScoreText.text = $"Best Score: {MenuManager.Instance.NameHighScore}: {MenuManager.Instance.HighScore}";
+
+        if (MenuManager.Instance.HighScore > 0)
+        {
+            BestScoreText.text = $"Best Score: {MenuManager.Instance.NameHighScore}: {MenuManager.Instance.HighScore}";
+        }
+        else
+        {
+            BestScoreText.text = $"Best Score: 0";
+        }
+
         nameInputField.onEndEdit.AddListener(SubmitInput);
     }
 

@@ -43,7 +43,15 @@ public class MainManager : MonoBehaviour
         if (MenuManager.Instance != null)
         {
             MenuManager.Instance.LoadHighScore();
-            BestScoreText.text = $"Best Score: {MenuManager.Instance.NameHighScore}: {MenuManager.Instance.HighScore}";
+
+            if (MenuManager.Instance.HighScore > 0)
+            {
+                BestScoreText.text = $"Best Score: {MenuManager.Instance.NameHighScore}: {MenuManager.Instance.HighScore}";
+            }
+            else
+            {
+                BestScoreText.text = $"Best Score: 0";
+            }
         }
 
     }
@@ -138,7 +146,6 @@ public class MainManager : MonoBehaviour
     {
         audioSource.PlayOneShot(clangSounds[Random.Range(0,2)]);
         bricksLeft--;
-        Debug.Log("Bricks left: " + bricksLeft);
         m_Points += point;
         ScoreText.text = $"Score: {m_Points}";
     }
@@ -154,7 +161,15 @@ public class MainManager : MonoBehaviour
         if (MenuManager.Instance != null)
         {
             MenuManager.Instance.LoadHighScore();
-            BestScoreText.text = $"Best Score: {MenuManager.Instance.NameHighScore}: {MenuManager.Instance.HighScore}";
+
+            if (MenuManager.Instance.HighScore > 0)
+            {
+                BestScoreText.text = $"Best Score: {MenuManager.Instance.NameHighScore}: {MenuManager.Instance.HighScore}";
+            }
+            else
+            {
+                BestScoreText.text = $"Best Score: 0";
+            }
         }
     }
 
